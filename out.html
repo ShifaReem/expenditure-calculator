@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+<style type="text/css">
+*{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+        }
+    body{
+        min-height:100vh;
+        background:#eee;
+        display:flex;
+        font-family:sans-serif;
+
+    }
+  .container{
+        margin:auto;
+        width:800px;
+        max-width:50%;
+    }
+  .container form{
+        width:100%;
+        height:100%;
+        padding:20px;
+        background:white;
+        border-radius:4px;
+        box-shadow:0 8px 16px rgba(0,0,0,3);
+    }
+  .container form h1{
+        text-align:center;
+        margin-bottom:24px;
+        color:#222
+    }
+  .container form .STATE{
+        width:100%;
+        height:40px;
+        background:white;
+        border-radius:4px;
+        border:1px solid silver;
+        margin:10px 0 18px 0;
+        padding:0 10px;
+    }
+  .container form.form-group{
+  width:100%;
+        height:40px;
+        background:white;
+        border-radius:4px;
+        border:1px solid silver;
+        margin:10px 0 18px 0;
+        padding:0 10px;
+  }
+  .container form .TIN{
+        width:100%;
+        height:40px;
+        background:white;
+        border-radius:4px;
+        border:1px solid silver;
+        margin:10px 0 18px 0;
+        padding:0 10px;
+    }
+  .container form .YEAR{
+        width:100%;
+        height:40px;
+        background:white;
+        border-radius:4px;
+        border:1px solid silver;
+        margin:10px 0 18px 0;
+        padding:0 10px;
+    }
+  .container form .btn{
+        margin-left:50%;
+        transform:translateX(-50%);
+        width:120px;
+        height:34px;
+        border:none;
+        outline:none;
+        background:#27a327;
+        cursor:pointer;
+        font-size:16px;
+        text-transform:uppercase;
+        color:white;
+        border-radius:4px;
+        transition: .3s;
+
+    }
+    .container form .btn:hover{
+        opacity: .7;
+    }
+
+</style>
+</head>
+
+<body>
+ <div class="container">
+	<h1>STATE EXPENDITURE</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="STATE">STATE</label>
+
+
+      <select class="STATE">
+        <option disabled selected>  STATE   </option>
+        <option value="1 ">Andhra Pradesh </option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradessh</option>
+        <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+
+</option>
+
+      </select>
+         <div class="form-group">
+        <label for="TIN">TIN</label>
+        <input type="text" name="TIN" class="TIN" required="required" />
+         </div>
+         <div class="form-group">
+         <label for="YEAR">YEAR</label>
+        <input type="text" name="YEAR" class="YEAR" required="required" />
+         </div>
+        <button type="PREDICT" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+    <div>
+        {{pr1 }}
+    </div>
+     <div>
+        {{pr2 }}
+    </div>
+     <div>
+        {{pr3 }}
+    </div>
+     <div>
+        {{pr4 }}
+    </div>
+
+
+ </div>
+
+
+
+</body>
+</html>
